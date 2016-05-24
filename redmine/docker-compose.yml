@@ -1,0 +1,16 @@
+version: '2'
+services:
+  redmine:
+    depends_on:
+      - redmine_db
+    build: .
+    links:
+      - redmine_db:postgres
+    ports:
+      - "3000:3000"
+  
+  redmine_db:
+    image: postgres
+    environment:
+      - POSTGRES_USER:redmine
+      - POSTGRES_PASSWORD:secret
