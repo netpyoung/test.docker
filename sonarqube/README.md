@@ -12,13 +12,14 @@ sonarqube
 ## tree
 * %주의% 프로젝트경로는 sonar-scanner가 있는 bin폴더에 있어야 한다.
 
+```
     .
     ├─bin
     │  ├─sonar-scanner - 실행파일
     ├─conf
     │  ├─sonar-scanner.properties - 설정파일
     └─lib
-
+```
 
 ## sonar-scanner.properties
 * sonarqube runner에서 sonarqube scanner로 이름 바꾼듯.
