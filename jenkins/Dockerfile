@@ -18,7 +18,7 @@ ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 50000
 ENV LANG=C.UTF-8
 ENV JAVA_OPTS="-Xmx1024m"
-ENV JENKINS_OPTS="--logfile=/var/log/jenkins/jenkins.log"
+ENV JENKINS_OPTS="--logfile=/var/jenkins_home/jenkins.log"
 ENV COPY_REFERENCE_FILE_LOG $JENKINS_HOME/copy_reference_file.log
 
 EXPOSE 8080
@@ -66,4 +66,4 @@ RUN /usr/local/bin/plugins.sh /plugins.txt
 
 # Switch to the jenkins user
 USER jenkins
-ENTRYPOINT ["jenkins"]
+ENTRYPOINT ["/usr/local/bin/jenkins.sh"]
