@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  phabricator:
+    build: .
+    ports:
+      - "8081:80"
+    environment:
+      - MYSQL_LINKED_CONTAINER:MYSQL
+      - MYSQL_USER:phabricator
+      - MYSQL_PASSWORD:password
+      - PHABRICATOR_REPOSITORY_PATH:/repos
+    volumes:
+      - "/c/Users/pyoung/@DEVOPS/repo:/repos"
+    links:
+      - phabricator_db:mysql
+ phabricator_db:
+    image: postgres
+    environment:
+      - MYSQL_USER:phabricator
+      - MYSQL_PASSWORD:password
