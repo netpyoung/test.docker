@@ -1,0 +1,19 @@
+sonarqube:
+  image: sonarqube
+  ports:
+   - "9000:9000"
+  links:
+   - db
+  environment:
+   - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
+#  volumes:
+#   - /opt/sonarqube/extensions
+#   - /opt/sonarqube/lib/bundled-plugins
+
+db:
+  image: postgres
+  environment:
+   - POSTGRES_USER=sonar
+   - POSTGRES_PASSWORD=sonar
+#  volumes:
+#   - /var/lib/postgresql
