@@ -2,20 +2,31 @@ version: '2'
 
 services:
   phabricator:
+    depends_on:
+      - phabricator_db
     build: .
     ports:
       - "8081:80"
     environment:
-      - MYSQL_LINKED_CONTAINER:MYSQL
-      - MYSQL_USER:phabricator
-      - MYSQL_PASSWORD:password
-      - PHABRICATOR_REPOSITORY_PATH:/repos
+      - MYSQL_LINKED_CONTAINER=MYSQL
+      - MYSQL_PORT_3306_TCP_ADDR=192.168.99.100
+      - MYSQL_PORT_3306_TCP_PORT=3306 
+      - MYSQL_USER=phabricator
+      - MYSQL_PASS=password
+      - PHABRICATOR_REPOSITORY_PATH=/repos
     volumes:
-      - "/c/Users/pyoung/@DEVOPS/repo:/repos"
+      - "/c/Users/pyoung/@DEVOPS/repos:/repos"
     links:
       - phabricator_db:mysql
- phabricator_db:
-    image: postgres
+#    entrypoint: ./waiting_mysql.sh
+  phabricator_db:
+    image: mysql/mysql-server
     environment:
-      - MYSQL_USER:phabricator
-      - MYSQL_PASSWORD:password
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=phabricator
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=phabricator_search
+    volumes:
+      - "/var/lib/mysql"
+    ports:
+      - "3306:3306"
