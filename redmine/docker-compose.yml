@@ -9,7 +9,10 @@ services:
       - redmine_db:postgres
     ports:
       - "3000:3000"
-  
+    volumes:
+      - /data/redmine/files:/usr/src/redmine/files
+      - /data/redmine/plugins:/usr/src/redmine/plugins
+      
   redmine_db:
     image: postgres
     environment:
