@@ -2,27 +2,27 @@ sonarqube
 =========
 
 
-´Ù¿î·Îµå : http://www.sonarqube.org/downloads/
+ë‹¤ìš´ë¡œë“œ : http://www.sonarqube.org/downloads/
 
 
 ## docker-recipe example
 * https://github.com/SonarSource/docker-sonarqube/blob/master/recipes.md
 
 
-## tree
-* %ÁÖÀÇ% ÇÁ·ÎÁ§Æ®°æ·Î´Â sonar-scanner°¡ ÀÖ´Â binÆú´õ¿¡ ÀÖ¾î¾ß ÇÑ´Ù.
+## sonar-scanner tree
+* %ì£¼ì˜% í”„ë¡œì íŠ¸ê²½ë¡œëŠ” sonar-scannerê°€ ìˆëŠ” biní´ë”ì— ìˆì–´ì•¼ í•œë‹¤.
 
 ```
     .
-    ¦§¦¡bin
-    ¦¢  ¦§¦¡sonar-scanner - ½ÇÇàÆÄÀÏ
-    ¦§¦¡conf
-    ¦¢  ¦§¦¡sonar-scanner.properties - ¼³Á¤ÆÄÀÏ
-    ¦¦¦¡lib
+    â”œâ”€bin
+    â”‚  â”œâ”€sonar-scanner - ì‹¤í–‰íŒŒì¼
+    â”œâ”€conf
+    â”‚  â”œâ”€sonar-scanner.properties - ì„¤ì •íŒŒì¼
+    â””â”€lib
 ```
 
 ## sonar-scanner.properties
-* sonarqube runner¿¡¼­ sonarqube scanner·Î ÀÌ¸§ ¹Ù²Ûµí.
+* sonarqube runnerì—ì„œ sonarqube scannerë¡œ ì´ë¦„ ë°”ê¾¼ë“¯.
 * http://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner
 * http://docs.sonarqube.org/display/SONAR/Analysis+Parameters
 
