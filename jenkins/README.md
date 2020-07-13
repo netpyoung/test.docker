@@ -1,10 +1,17 @@
 Jenkins
 =======
 
-* https://hub.docker.com/_/jenkins/
 * https://github.com/jenkinsci/docker
 
-# ref
-* https://github.com/maxfields2000/dockerjenkins_tutorial
-* http://stackoverflow.com/questions/7709993/how-can-i-update-jenkins-plugins-from-the-terminal
-* http://www.hugeinc.com/ideas/perspective/list-of-useful-jenkins-plugins
+```
+    ports:
+      - "50000:50000"
+      - "8080:8080"
+    volumes:
+      - "/c/Users/netpyoung/@DEVOPS/jenkins_home:/var/jenkins_home"
+```
+
+- `docker-compose.yml` 볼륨 확인하고
+- `Dockerfile` plugins.txt확인
+- `docker-compose up` 으로 기동
+- `/var/jenkins_home/secrets/initialAdminPassword`
