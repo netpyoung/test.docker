@@ -1,6 +1,8 @@
 WIP redmine
 =======
 
+- https://www.redmine.org/projects/redmine/wiki/RedmineTextFormattingMarkdown
+
 
 * https://hub.docker.com/_/redmine/
 

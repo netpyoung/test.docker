@@ -2,22 +2,32 @@ version: '2'
 
 services:
   redmine:
+    image: redmine:4.1.1-passenger
+    restart: always
     depends_on:
       - redmine_db
-    build: .
     links:
       - redmine_db:postgres
-    ports:
-      - "3000:3000"
     environment:
-      - POSTGRES_PORT_5432_TCP=5432
-      - POSTGRES_ENV_POSTGRES_USER=redmine
-      - POSTGRES_ENV_POSTGRES_PASSWORD=secret
+      - REDMINE_DB_POSTGRES=redmine_db
+      - REDMINE_DB_PORT=5432
+      - REDMINE_DB_USERNAME=redmine
+      - REDMINE_DB_PASSWORD=secret
+    ports:
+      - "41001:3000"
     volumes:
-      - /data/redmine/files:/usr/src/redmine/files
-      - /data/redmine/plugins:/usr/src/redmine/plugins
+      - "/c/mySpace/@DEVOPS/redmine_home/redmine/files:/usr/src/redmine/files"
+      - "/c/mySpace/@DEVOPS/redmine_home/redmine/plugins:/usr/src/redmine/plugins"
+      - "/c/mySpace/@DEVOPS/redmine_home/redmine/themes:/usr/src/redmine/themes"
   redmine_db:
-    image: postgres
+    # ref: https://github.com/docker-library/docs/blob/master/postgres/README.md
+    image: postgres:13
+    # ref: https://hub.docker.com/_/postgres - Environment Variables
     environment:
       - POSTGRES_USER=redmine
       - POSTGRES_PASSWORD=secret
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    ports: # HOST:CONTAINER
+      - "41002:5432"
+    volumes:
+      - "/c/mySpace/@DEVOPS/redmine_home/db:/var/lib/postgresql/data"

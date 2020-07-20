@@ -10,6 +10,12 @@ docker rm $(docker ps -a -q)
 docker rmi $(docker images -q)
 ```
 
+jenkins
+  - 8080 홈
+  - 50000 마스터-에이전트
+redmine
+  - 41000
+  - 41001
 
 # Learn docker
 * %주의% windows에서는 conemu랑 연결시킬것.
@@ -20,11 +26,13 @@ docker rmi $(docker images -q)
 * https://golang.org/pkg/path/filepath/#Match
 
 
-# ETC
-* Tini - A tiny but valid init for containers
-  - https://github.com/krallin/tini
-* http://alpinelinux.org
-
 # REF
-* http://pseg.or.kr/pseg/
-* http://12factor.net/
+- https://ngrok.com/ - 외부 노출 url 테스트용
+
+## Unity CacheServer
+- https://github.com/Unity-Technologies/unity-cache-server
+- https://github.com/windyakin/docker-unity-cache-server
+
+## waiting
+- https://github.com/ufoscout/docker-compose-wait
+- https://github.com/vishnubob/wait-for-it
